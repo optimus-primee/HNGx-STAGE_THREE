@@ -1,15 +1,21 @@
 import type { ImagesResults } from "@/models/Images"
 import { ImagesSchemaWithPhotos } from "@/models/Images"
-import env from "./env"
+
 
 export default async function fetchImages(url: string): Promise<ImagesResults | undefined> {
     try {
+        const apiKey = process.env.NEXT_PUBLIC_PEXELS_API_KEY;
+        
+        if (!apiKey) {
+            console.error("API key is undefined.");
+            return undefined;
+        }
+
         const res = await fetch(url, {
             headers: {
-                Authorization: env.PEXELS_API_KEY
+                Authorization: apiKey
             }
         })
-
         if (!res.ok) throw new Error("Fetch Images error!\n")
 
         const imagesResults: ImagesResults = await res.json()
