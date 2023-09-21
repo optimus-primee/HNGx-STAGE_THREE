@@ -14,6 +14,7 @@
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
     "envalid": "^8.0.0",
+    "grid-layout": "^1.0.0",
     "next": "13.5.1",
     "plaiceholder": "^3.0.0",
     "postcss": "8.4.30",

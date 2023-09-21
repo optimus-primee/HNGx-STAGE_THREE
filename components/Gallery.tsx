@@ -17,10 +17,12 @@ export default async function Gallery({topic}:Props) {
     return <h2 className="m-4 text-2xl font-bold">No Images Found</h2>;
     const photosWithBlur = await addBlurredDataUrls(images)
   return (
-    <section className="px-1 my-3 grid grid-cols-gallery auto-rows-[10px] ">
+    <section className="px-1 my-3 grid grid-cols-gallery auto-rows-[10px]  lg:mx-24 mx-4" >
       
         {photosWithBlur.map((photo) => (
-          <ImgContainer key={photo.id} photo={photo}/>
+      
+            <ImgContainer key={photo.id} photo={photo}/>
+        
         ))}
      
     </section>
